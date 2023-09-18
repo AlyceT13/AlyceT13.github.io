@@ -72,7 +72,9 @@ a {
     font-family: 'Spectral', sans-serif;
     text-decoration: none;
 }
-
+#esp {
+    background-color: #E8E8E4;
+}
 #home {
     width: 100%;
     height: calc(50vh - 3em);
