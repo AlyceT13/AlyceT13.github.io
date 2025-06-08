@@ -329,7 +329,6 @@ p {
     color: #18bc9c;
 }
 
-/* === Responsive styles for screens smaller than 768px === */
 @media (max-width: 768px) {
   /* Hamburger menu visible */
   #icono {
