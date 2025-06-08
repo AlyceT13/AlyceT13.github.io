@@ -1,25 +1,36 @@
 /*jslint devel: true */
 /*eslint-env browser*/
 
-function cambioIdioma(clase) {
-    "use strict";
-    var idioma = document.getElementById("languages").children;
-    var i;
-    for (i = 0; i < idioma.length; i += 1) {
-        if (idioma[i].className.match(clase)) {
-            idioma[i].style.display = "block";
-        } else {
-            idioma[i].style.display = "none";
-        }
+const translations = {
+  es: {
+    "contact-title": "INFORMACIÓN DE CONTACTO:",
+    "home-description": "Soy una estudiante acabando mi cuarto año del grado en Diseño y desarrollo de videojuegos en",
+    "home-title": "INICIO",
+    "skills-title": "CONOCIMIENTOS Y TRABAJOS",
+    "contact-title": "CONTACTO",
+  },
+  en: {
+    "contact-title": "CONTACT INFORMATION:",
+    "home-description": "I am a third-year student in the degree of Video Game Design and Development...",
+    "home-title": "HOME",
+    "skills-title": "SKILLS AND PROJECTS",
+    "contact-title": "CONTACT",
+  }
+};
+
+function changeLanguage(lang) {
+  document.querySelectorAll("[data-key]").forEach((el) => {
+    const key = el.getAttribute("data-key");
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
     }
+  });
 }
 
 function espaniol() {
-    "use strict";
-    cambioIdioma("esp");
+  changeLanguage("es");
 }
 
 function ingles() {
-    "use strict";
-    cambioIdioma("eng");
+  changeLanguage("en");
 }
