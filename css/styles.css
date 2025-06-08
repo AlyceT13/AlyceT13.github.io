@@ -43,13 +43,13 @@ html, body {
 
 /* Animation when active */
 #icono.cambiar .bar1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
 }
 #icono.cambiar .bar2 {
   opacity: 0;
 }
 #icono.cambiar .bar3 {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(45deg) translate(-6px, -6px);
 }
 
 /* --- MENU --- */
