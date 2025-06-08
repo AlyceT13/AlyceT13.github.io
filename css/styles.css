@@ -1,28 +1,22 @@
 /* Base reset and font */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     color: #5c5c5c;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #f7f7f7;
-  color: #333;
-  line-height: 1.6;
-  padding-top: 60px;
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    height: 100%;
+    background-color: rgb(246, 251, 255);
 }
 
 /* Container */
 #container {
-  max-width: 1200px;
+  width: 100%;
   margin: auto;
-  padding: 0 20px;
 }
 
 /* Hide icon by default */
@@ -97,14 +91,11 @@ body {
 
 /* Sections */
 main section {
-  margin: 40px 0;
-  padding: 20px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 4rem 2rem;
 }
 
 h1 {
+  text-align: center;
   font-size: 2.5em;
   margin-bottom: 10px;
   color: #2c3e50;
@@ -118,6 +109,30 @@ h2 {
 
 p {
   margin-bottom: 10px;
+}
+
+/*home section*/
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem;
+    box-sizing: border-box;
+}
+#home>div>h1 {
+  font-size: 3.5em;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+#description{
+  text-align: justify;
+  margin-top: 2rem;
+}
+#scroll{
+  position:relative;
+  top: 10rem;
 }
 
 #name {
@@ -135,8 +150,27 @@ p {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+/* --- Skills --- */
+#skill{
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 2rem;
+  padding: 20px;
+  background-color: rgb(207, 220, 231);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+/* --- Projects--- */
+#projects{
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 2rem;
+  padding: 20px;
+  background-color: rgb(207, 220, 231);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-/* --- Projects Grid --- */
 #works {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -145,7 +179,7 @@ p {
 }
 
 #works > div {
-    background-color: #f9f9f9;
+    background-color: rgb(207, 220, 231);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -182,7 +216,7 @@ p {
   text-align: center;
 }
 .project-card:hover {
-  transform: scale(1.02);
+  transform: scale(5.02);
 }
 .project-card figure {
   margin: 0;
@@ -214,16 +248,15 @@ p {
 .modal-content {
   background-color: #fff;
   margin: auto;
+  margin-top: 9rem;
   padding: 2rem;
   border-radius: 10px;
   width: 90%;
   max-width: 600px;
   position: relative;
-  font-family: 'Spectral', serif;
 }
 
 .modal-content h2 {
-  font-family: 'Philosopher', serif;
   color: #2c3e50;
 }
 
@@ -248,11 +281,20 @@ p {
 }
 
 /* --- Links section --- */
+#links{
+  padding: 20px;
+  background-color: rgb(207, 220, 231);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+#links-title{
+  font-size: 25px;
+}
 #links a {
   display: block;
   color: #3498db;
   text-decoration: none;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 #links a:hover {
   text-decoration: underline;
@@ -264,7 +306,6 @@ p {
     background-color: rgb(47, 52, 74);
     padding: 15px 30px;
     text-align: center;
-    margin-top: 50px;
 }
 
 #end ul {
@@ -288,36 +329,70 @@ p {
     color: #18bc9c;
 }
 
-/* Hide desktop menu on small screens and use vertical menu */
+/* === Responsive styles for screens smaller than 768px === */
 @media (max-width: 768px) {
+  /* Hamburger menu visible */
   #icono {
     display: flex;
   }
+
+  /* Menu becomes vertical and collapsible */
   #menu {
-    display: none;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(47, 52, 74);
-    width: 100%;
-    position: fixed;
-    top: 0;
-    padding-top: 60px;
-    left: 0;
+    padding: 1rem;
+    display: none;
+  }
+
+  #menu.show {
+    display: flex;
   }
 
   #menu ul {
     flex-direction: column;
-    gap: 20px;
+    gap: 1.5rem;
   }
 
-  #menu li {
+  /* Reduce paddings and margins */
+  #skill,
+  #projects {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  #home {
+    flex-direction: column;
+    padding: 2rem 1rem;
     text-align: center;
-    width: 100%;
   }
 
-  #menu li a {
-    display: block;
-    padding: 10px;
+  #home > div > h1 {
+    font-size: 2.5em;
+  }
+
+  #works {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin-top: 4rem;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  #links-title {
     font-size: 1.2em;
+  }
+
+  #scroll {
+    top: 5rem;
   }
 }
